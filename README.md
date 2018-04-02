@@ -19,6 +19,7 @@
 * =>产品管理>创建产品
 * =>产品管理>产品详情>设备管理>创建设备
 * =>产品管理>产品详情>设备管理>添加自定义属性 tag，imei
+
 | 属性名key | 属性值value | 描述|
 | ------| ------ | ------ |
 | tag | 西溪园区 1-2-56 | 自定义设备位置 |
@@ -73,6 +74,7 @@ Topic：
 * 进入文件夹 cd ali-iot-client
 * 创建工程 rap init
 * 添加硬件和驱动 rap device add humirature
+* 设备型号 DHT11
 * 查看硬件接线 rap layout --visual
 
 完整过程
@@ -334,8 +336,13 @@ $ node index.js
 ```
 
 # 帮助&反馈
-![帮助](https://cdn.yuque.com/lark/2018/png/15292/1522115158720-65d25f72-ce35-4214-b166-81a83469e3bb.png)
+
+<img src='https://cdn.yuque.com/lark/2018/png/15292/1522115158720-65d25f72-ce35-4214-b166-81a83469e3bb.png' width="240" height="300" />
 
 吐槽传送门：https://survey.taobao.com/survey/4MDdbnS5C
-![反馈](https://cdn.yuque.com/lark/2018/png/15292/1522638155144-185b8e1e-9cb7-4ba0-b3e4-f0436fcaa8b5.png)
 
+<img src='https://cdn.yuque.com/lark/2018/png/15292/1522638155144-185b8e1e-9cb7-4ba0-b3e4-f0436fcaa8b5.png' width="240" height="260" />
+
+联系我：
+
+<img src='https://raw.githubusercontent.com/wongxming/dtalkNodejs/master/wongxming.jpg' width="240" height="240" />
