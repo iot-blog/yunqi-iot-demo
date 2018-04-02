@@ -33,7 +33,7 @@
 | /productKey/${deviceName}/data | 发布 | 上报数据 |
 | /productKey/${deviceName}/control | 订阅 | 下行指令 |
 
-```
+```JavaScript
 上报数据payload为json示例：
 {"temperature":23,"humidity":63}
 
@@ -44,7 +44,7 @@
 * =>规则引擎>创建规则 toTableStore
 * =>规则引擎>规则详情>数据处理
 
-```
+```JavaScript
 字段：
 deviceName() as deviceName ,                        //函数
 timestamp('yyyy-MM-ddHH:mm:ss') as time,           //函数
@@ -78,7 +78,7 @@ Topic：
 * 查看硬件接线 rap layout --visual
 
 完整过程
-```
+```bash
 $ mkdir ali-iot-client
 $ cd ali-iot-client
 $ rap init
@@ -97,7 +97,7 @@ $ rap layout --visual
 ```
 
 * 在package.json中增加iot的sdk包 aliyun-iot-device-mqtt
-```
+```JavaScript
 "ruff": {
     "dependencies": {
       //添加阿里云IoT的设备端sdk
@@ -108,13 +108,13 @@ $ rap layout --visual
   }
 ```
 * 安装依赖 
-```
+```bash
 $ rap install
 ```
 * 安装完目录结构如下：
 ![转发数据目的地](https://cdn.yuque.com/lark/2018/png/15292/1522114958206-3985fb7c-ae17-4431-9bc5-2c63f238dbcc.png)
 * 编写业务逻辑 /src/index.js
-```
+```JavaScript
 // 引入aliyun-iot-sdk
 var MQTT = require('aliyun-iot-device-mqtt');
 
@@ -193,7 +193,7 @@ function doHandler(topic, message) {
 }
 ```
 * 连接Ruff_Rxxxxx的wifi，发布到硬件板  
-```
+```bash
 $ rap deploy –s
 ```
 ## 4.设备通电，验证
@@ -210,7 +210,7 @@ $ rap deploy –s
 
 * 开通FC函数计算服务https://www.aliyun.com/product/fc
 * 创建服务，创建Nodejs函数
-```
+```JavaScript
 const https = require('https');
 //深圳云栖Workshop钉钉群机器人token
 const accessToken = '';
@@ -227,8 +227,7 @@ module.exports.handler = function(event, context, callback) {
                 "> 设备编号：" + eventJson.imei+ "\n\n" +
                 "> 实时温度：" + eventJson.temperature + "℃\n\n" +
                 "> 相对湿度：" + eventJson.humidity + "%\n\n" +
-                "> ###### " + eventJson.time + " 发布  by [物联网套件](https://www.atatech.org/articles/98370) \n"
-          //https://www.aliyun.com/product/iot
+                "> ###### " + eventJson.time + " 发布  by [物联网套件](https://www.aliyun.com/product/iot) \n"
         },
         "at": {
             "isAtAll": false
@@ -270,7 +269,7 @@ module.exports.handler = function(event, context, callback) {
 # 三.通过服务端sdk控制设备
 ## 1.IoT套件控制台方式
 * 通过IoT套件控制台下发指令 /{productKey}/+/control 
-```
+```JavaScript
 //on开灯，off关灯
 {"device": "iotLed","state": "on"}
 ```
@@ -279,7 +278,7 @@ module.exports.handler = function(event, context, callback) {
 mkdir ali-iot-server
 * 添加 package.json,
 * 增加iot服务端sdk依赖aliyun-iot-server-sdk
-```
+```JavaScript
 {
   "name": "aliyun-iot-server-sdk-demo",
   "version": "0.0.1",
@@ -294,7 +293,7 @@ mkdir ali-iot-server
 }
 ```
 添加index.js
-```
+```JavaScript
 'use strict';
 var IotServerSDK = require('aliyun-iot-server-sdk');
 const co = require('co');
@@ -330,7 +329,7 @@ co(function*() {
 ![](https://cdn.yuque.com/lark/2018/png/15292/1522637045310-f60685b2-111e-49d2-81b7-afc51334662d.png)
 
 * 执行程序
-```
+```bash
 $ npm install --registry=https://registry.npm.taobao.org
 $ node index.js
 ```
