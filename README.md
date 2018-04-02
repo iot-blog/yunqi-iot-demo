@@ -324,7 +324,9 @@ co(function*() {
 });
 ```
 * 目录结构
+
 ![](https://cdn.yuque.com/lark/2018/png/15292/1522637045310-f60685b2-111e-49d2-81b7-afc51334662d.png)
+
 * 执行程序
 ```
 $ npm install --registry=https://registry.npm.taobao.org
@@ -333,5 +335,6 @@ $ node index.js
 
 # 帮助&反馈
 ![](https://cdn.yuque.com/lark/2018/png/15292/1522115158720-65d25f72-ce35-4214-b166-81a83469e3bb.png)
+
 
 ![](https://cdn.yuque.com/lark/2018/png/15292/1522115173842-a9d0ee66-4199-456c-a17c-0dd8bfc1f399.png)
