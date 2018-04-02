@@ -1,0 +1,14 @@
+{
+    "name": "ali-iot-client",
+    "version": "0.1.0",
+    "description": "",
+    "author": "",
+    "main": "src/index.js",
+    "ruff": {
+        "dependencies": {
+            "aliyun-iot-device-mqtt": "^0.0.5",
+            "dht11": "^0.3.6"
+        },
+        "version": 1
+    }
+}

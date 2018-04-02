@@ -1,0 +1,12 @@
+{
+  "name": "aliyun-iot-server-sdk-demo",
+  "version": "0.0.1",
+  "description": "阿里云IoT套件 Server sdk",
+  "private": true,
+  "dependencies": {
+    "aliyun-iot-server-sdk": "^0.0.2",
+    "co": "4.6.0"
+  },
+  "author": "",
+  "license": "MIT"
+}

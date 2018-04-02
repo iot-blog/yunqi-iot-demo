@@ -1,0 +1,15 @@
+{
+    "devices": [
+        {
+            "id": "humirature",
+            "model": "DHT11",
+            "driver": "dht11",
+            "inputs": {
+                "gpio": {
+                    "type": "gpio",
+                    "reserve": "gpio-18/gpio"
+                }
+            }
+        }
+    ]
+}

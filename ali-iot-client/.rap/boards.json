@@ -1,0 +1,10 @@
+{
+    "ruff": {
+        "boards": {
+            "ruff-mbd-v1": {
+                "version": "4.2.10",
+                "isActive": true
+            }
+        }
+    }
+}
