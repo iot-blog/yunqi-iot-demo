@@ -62,7 +62,7 @@ Topic：
 * 创建实例iotStore
 * 建表iotMsg主键 device，类型STRING
 * 创建otsRole角色
-* 配置规则引擎转发到iotMsg实例中的iot_data表 
+* 配置规则引擎转发到iotMsg实例中的iot_data表
 * device主键映射sql结果中的 ${deviceName}
 
 * =>规则引擎>规则详情>转发数据目的地
@@ -84,8 +84,8 @@ $ cd ali-iot-client
 $ rap init
 ? app name: ali-iot-client
 ? version: 0.1.0
-? description: 
-? author: 
+? description:
+? author:
 Installing main board module...
 Done, happy crafting!
 
@@ -101,13 +101,13 @@ $ rap layout --visual
 "ruff": {
     "dependencies": {
       //添加阿里云IoT的设备端sdk
-      "aliyun-iot-device-mqtt": "^0.0.5", 
+      "aliyun-iot-device-mqtt": "^0.0.5",
       "dht11": "^0.3.6"
     },
     "version": 1
   }
 ```
-* 安装依赖 
+* 安装依赖
 ```bash
 $ rap install
 ```
@@ -186,13 +186,13 @@ function doHandler(topic, message) {
 
             } else {
                 $('#led-r').turnOff();
-                
+
             }
         }
     }
 }
 ```
-* 连接Ruff_Rxxxxx的wifi，发布到硬件板  
+* 连接Ruff_Rxxxxx的wifi，发布到硬件板
 ```bash
 $ rap deploy –s
 ```
@@ -210,65 +210,64 @@ $ rap deploy –s
 
 * 开通FC函数计算服务https://www.aliyun.com/product/fc
 * 创建服务，创建Nodejs函数
+
 ```JavaScript
-const https = require('https');
+'use strict';
+
+const Bot = require('dingbot');
+
 //深圳云栖Workshop钉钉群机器人token
 const accessToken = '';
 
-module.exports.handler = function(event, context, callback) {
+const bot = new Bot(`https://oapi.dingtalk.com/robot/send?access_token=${accessToken}`);
+
+function hook(asyncCall) {
+  return function (event, context, callback) {
+    asyncCall(event, context).then(() => {
+        callback(null);
+    }, (err) => {
+        callback(err);
+    });
+  }
+}
+
+exports.handler = hook(async function(event, context) {
     var eventJson = JSON.parse(event.toString());
 
-    const postData = JSON.stringify({
-        "msgtype": "markdown",
-        "markdown": {
-            "title": "温湿度传感器",
-            "text": "#### 温湿度传感器上报\n" +
-                "> 设备位置：" + eventJson.tag + "\n\n" +
-                "> 设备编号：" + eventJson.imei+ "\n\n" +
-                "> 实时温度：" + eventJson.temperature + "℃\n\n" +
-                "> 相对湿度：" + eventJson.humidity + "%\n\n" +
-                "> ###### " + eventJson.time + " 发布  by [物联网套件](https://www.aliyun.com/product/iot) \n"
-        },
-        "at": {
-            "isAtAll": false
-        }
-    });
-
-    const options = {
-        hostname: 'oapi.dingtalk.com',
-        port: 443,
-        path: '/robot/send?access_token='+accessToken,
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Content-Length': Buffer.byteLength(postData)
-        }
-    };
-    const req = https.request(options, (res) => {
-
-        res.setEncoding('utf8');
-        res.on('data', (chunk) => {});
-        res.on('end', () => {
-            callback(null, 'success');
-        });
-    });
-
-    req.on('error', (e) => {
-        callback(e);
-    });
-
-    // 写入数据请求主体
-    req.write(postData);
-    req.end();
-
-};
+    await bot.markdown("温湿度传感器", "#### 温湿度传感器上报\n" +
+        "> 设备位置：" + eventJson.tag + "\n\n" +
+        "> 设备编号：" + eventJson.imei+ "\n\n" +
+        "> 实时温度：" + eventJson.temperature + "℃\n\n" +
+        "> 相对湿度：" + eventJson.humidity + "%\n\n" +
+        "> ###### " + eventJson.time + " 发布  by [物联网套件](https://www.aliyun.com/product/iot) \n");
+});
 ```
+
+编写 faas.yaml 文件
+
+```yaml
+function-compute:
+  region: 'cn-shanghai'
+  services:
+    - name: 'IoT_Service'
+      description: 'IoT_Service demo'
+      functions:
+        - name: 'pushData2DingTalk'
+          description: 'demo'
+          handler: index.handler
+          runtime: nodejs8
+          codes:
+            - 'index.js'
+```
+
+在 ali-iot-fc 目录下执行 `fun deploy` 将函数部署。
+
 ## 2.IoT套件规则引擎
 * 配置规则引擎，转发到函数计算图片: ![](https://cdn.yuque.com/lark/2018/png/15292/1522115116279-4b760249-07e8-4f2c-9c63-055f9a37fc84.png)
 
 # 三.通过服务端sdk控制设备
 ## 1.IoT套件控制台方式
-* 通过IoT套件控制台下发指令 /{productKey}/+/control 
+* 通过IoT套件控制台下发指令 /{productKey}/+/control
 ```JavaScript
 //on开灯，off关灯
 {"device": "iotLed","state": "on"}
@@ -306,7 +305,7 @@ var options = {
 var serverAPI = IotServerSDK.getIotServerClient(options);
 
 co(function*() {
-    
+
     //开关灯数据指令
     var pubBody = {
         device: "iotLed",
