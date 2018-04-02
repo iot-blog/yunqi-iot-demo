@@ -334,7 +334,8 @@ $ node index.js
 ```
 
 # 帮助&反馈
-![](https://cdn.yuque.com/lark/2018/png/15292/1522115158720-65d25f72-ce35-4214-b166-81a83469e3bb.png)
+![帮助](https://cdn.yuque.com/lark/2018/png/15292/1522115158720-65d25f72-ce35-4214-b166-81a83469e3bb.png)
 
+吐槽传送门：https://survey.taobao.com/survey/4MDdbnS5C
+![反馈](https://cdn.yuque.com/lark/2018/png/15292/1522638155144-185b8e1e-9cb7-4ba0-b3e4-f0436fcaa8b5.png)
 
-![](https://cdn.yuque.com/lark/2018/png/15292/1522115173842-a9d0ee66-4199-456c-a17c-0dd8bfc1f399.png)
