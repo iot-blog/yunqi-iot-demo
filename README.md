@@ -13,7 +13,7 @@
 * 通过API远程控制设备端led灯开/关
 
 # 一.温湿度计采集数据通过阿里云IoT套件转储到表格存储(OTS)
-![](https://cdn.yuque.com/lark/2018/png/15292/1522636558119-6aacbc99-8ad9-429a-9512-c9e997c60086.png)
+![](https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/iot-ots.png)
 ## 1.阿里云IoT物联网套件
 * 开通物联网套件 https://www.aliyun.com/product/iot
 * =>产品管理>创建产品
@@ -54,7 +54,7 @@ humidity, temperature                               //取payload数据
 Topic：
 /productKey/+/data
 ```
-![数据处理](https://cdn.yuque.com/lark/2018/png/15292/1522114891160-c022b6a9-8794-4023-bcfb-103893bacead.png)
+![数据处理](https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/rule-sql.png)
 
 ## 2.表格存储ots
 
@@ -66,7 +66,7 @@ Topic：
 * device主键映射sql结果中的 ${deviceName}
 
 * =>规则引擎>规则详情>转发数据目的地
-![转发数据目的地](https://cdn.yuque.com/lark/2018/png/15292/1522114915229-8d4e21fd-7161-4f18-bfd4-5716055faeda.png)
+![转发数据目的地](https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/rule-ots.png)
 
 ## 3.硬件端开发
 
@@ -112,7 +112,7 @@ $ rap layout --visual
 $ rap install
 ```
 * 安装完目录结构如下：
-![转发数据目的地](https://cdn.yuque.com/lark/2018/png/15292/1522114958206-3985fb7c-ae17-4431-9bc5-2c63f238dbcc.png)
+![转发数据目的地](https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/iot-client.png)
 * 编写业务逻辑 /src/index.js
 ```JavaScript
 // 引入aliyun-iot-sdk
@@ -198,14 +198,14 @@ $ rap deploy –s
 ```
 ## 4.设备通电，验证
 * 验证设备连接成功
-![](https://cdn.yuque.com/lark/2018/png/15292/1522242630924-b607cff2-96d0-4772-ba05-e78dc0dce139.png)
+![](https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/iot-online.png)
 * 验证数据上传成功
-![](https://cdn.yuque.com/lark/2018/png/15292/1522242685121-1ef75310-f3dc-4b91-946f-e5a20ab559c9.png)
+![](https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/iot-data-up.png)
 * 验证表格存储OTS有数据
-![](https://cdn.yuque.com/lark/2018/png/15292/1522115060665-e13b9b56-06e8-4742-b8e3-dfd94b424d69.png)
+![](https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/ots.png)
 
 # 二.通过函数计算FC将数据发布到钉钉群
-![](https://cdn.yuque.com/lark/2018/png/15292/1522115086809-45a0f0fb-a487-4659-b485-06da55a85e67.png)
+![](https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/iot-fc.png)
 ## 1.函数计算fc
 
 * 开通FC函数计算服务https://www.aliyun.com/product/fc
@@ -264,7 +264,7 @@ module.exports.handler = function(event, context, callback) {
 };
 ```
 ## 2.IoT套件规则引擎
-* 配置规则引擎，转发到函数计算图片: ![](https://cdn.yuque.com/lark/2018/png/15292/1522115116279-4b760249-07e8-4f2c-9c63-055f9a37fc84.png)
+* 配置规则引擎，转发到函数计算图片: ![](https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/rule-fc.png)
 
 # 三.通过服务端sdk控制设备
 ## 1.IoT套件控制台方式
@@ -326,7 +326,7 @@ co(function*() {
 ```
 * 目录结构
 
-![](https://cdn.yuque.com/lark/2018/png/15292/1522637045310-f60685b2-111e-49d2-81b7-afc51334662d.png)
+![](https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/iot-server.png)
 
 * 执行程序
 ```bash
@@ -336,11 +336,11 @@ $ node index.js
 
 # 帮助&反馈
 
-<img src='https://cdn.yuque.com/lark/2018/png/15292/1522115158720-65d25f72-ce35-4214-b166-81a83469e3bb.png' width="240" height="300" />
+<img src='https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/iot-dd.png' width="240" height="300" />
 
 吐槽传送门：https://survey.taobao.com/survey/4MDdbnS5C
 
-<img src='https://cdn.yuque.com/lark/2018/png/15292/1522638155144-185b8e1e-9cb7-4ba0-b3e4-f0436fcaa8b5.png' width="240" height="260" />
+<img src='https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/iot-fqa.png' width="240" height="260" />
 
 联系我：
 
