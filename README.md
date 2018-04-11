@@ -194,7 +194,7 @@ function doHandler(topic, message) {
 ```
 * 连接Ruff_Rxxxxx的wifi，发布到硬件板  
 ```bash
-$ rap deploy –s
+$ rap deploy -s
 ```
 ## 4.设备通电，验证
 * 验证设备连接成功
