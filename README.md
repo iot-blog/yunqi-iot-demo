@@ -1,5 +1,5 @@
 # yunqi-iot-demo
-深圳云栖大会阿里云IoT物联网套件开发实战
+阿里云IoT物联网套件开发实战
 ## aliyun-iot-client
 设备端sdk使用案例
 * 设备端和阿里云IoT建立连接
@@ -334,14 +334,6 @@ $ npm install --registry=https://registry.npm.taobao.org
 $ node index.js
 ```
 
-# 帮助&反馈
+# IoT物联网技术-微信公共账号
 
-<img src='https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/iot-dd.png' width="240" height="300" />
-
-吐槽传送门：https://survey.taobao.com/survey/4MDdbnS5C
-
-<img src='https://raw.githubusercontent.com/iot-blog/yunqi-iot-demo/master/images/iot-fqa.png' width="240" height="260" />
-
-联系我：
-
-<img src='https://raw.githubusercontent.com/wongxming/dtalkNodejs/master/wongxming.jpg' width="240" height="240" />
+<img src='https://raw.githubusercontent.com/wongxming/ecs/master/iot-tech-weixin.png' width="260" height="260" />
