@@ -1,0 +1,12 @@
+function-compute:
+  region: 'cn-shanghai'
+  services:
+    - name: 'IoT_Service'
+      description: 'IoT_Service demo'
+      functions:
+        - name: 'pushData2DingTalk'
+          description: 'demo'
+          handler: index.handler
+          runtime: nodejs8
+          codes:
+            - 'index.js'
